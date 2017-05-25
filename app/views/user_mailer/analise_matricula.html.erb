@@ -1,0 +1,29 @@
+<p>Prezado(a) <%=@aluno.nome%></p>
+<p>Sua solicitação de matrícula nas disciplinas:</p>
+<% @disciplinas. each do |disciplina| %>
+  <%= disciplina.nome %><br>
+<% end %>
+<br>
+<p>foram analisadas pela secretaria acadêmica do <%=@formulario.centro%>. O parecer foi:</p>
+<p><b><%= @parecer %></b></p>
+
+<% if @parecer == "Reprovado" %>
+
+  <p><b>Verificação dos critérios pela Divisão Acadêmica do centro:</b></p>
+  <p>1. Já teve solicitação de estágio <b>DEFERIDA</b> anteriormente? <b><%= @formulario.resposta_2 %></b></p>
+  <p>2. Completou, no mínimo, a metade dos quadrimestres previstos para o curso (6 quadrimestres)? <b><%= @formulario.resposta_3 %></b></p> 
+  <p>3. Cursou ou está matriculado em uma ou mais disciplinas de Práticas de Ensino? <b><%= @formulario.resposta_4 %></b></p>
+  <p>4. Integrou, com aprovação, metade dos créditos de disciplinas obrigatórias do curso? <b><%= @formulario.resposta_5 %></b></p>
+  <p>5. Outros motivos: <%= @formulario.resposta_6 %></b></p>
+  <p>Sua solicitação de redução de horas foi deferida em <b><%=@formulario.porcentagem%></b>.</p>
+ <% end %> 
+  
+  <% if @formulario.mensagem.length > 0%>
+  <b>Mensagem da secretaria:</b>
+    <p><%=@formulario.mensagem%></p>
+ 
+ <% end %>
+    
+    
+    <b><p>Antes do início das aulas do próximo quadrimestre, o professor orientador da disciplina entrará em contato através do e-mail fornecido prestando as informações necessárias</p></b>
+<p>Essa mensagem foi gerada automaticamente, favor não responder. <b>Em caso de dúvida, contate a Divisão Acadêmica <%=@email%>.</p><b>

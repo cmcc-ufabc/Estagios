@@ -1,0 +1,60 @@
+<% if flash[:erro]%>
+<p class="flash-notice"><font color = "red" size="5"><%= flash[:erro] %></font></p>
+<br>
+  <% end %>
+
+
+<p><b>Informe o(s) curso(s)</b></p>
+<%= form_for(:curso, :url => {:controller => 'matriculas', :action =>'create'}) do |f| %>
+
+<p><%= check_box_tag "cursos[]",t(:lic_ciencia_bio), (checked = true if Curso.find(:first, :conditions => {:aluno_id => current_usuario.id, :nome_do_curso => t(:lic_ciencia_bio)})) %> Licenciatura em ciências biológicas</p>
+<p><%= check_box_tag "cursos[]",t(:lic_filosofia), (checked = true if Curso.find(:first, :conditions => {:aluno_id => current_usuario.id, :nome_do_curso => t(:lic_filosofia)})) %> Licenciatura em filosofia</p>
+<p><%= check_box_tag "cursos[]",t(:lic_fisica), (checked = true if Curso.find(:first, :conditions => {:aluno_id => current_usuario.id, :nome_do_curso => t(:lic_fisica)})) %> Licenciatura em física</p>
+<p><%= check_box_tag "cursos[]",t(:lic_matematica), (checked = true if Curso.find(:first, :conditions => {:aluno_id => current_usuario.id, :nome_do_curso => t(:lic_matematica)})) %> Licenciatura em matemática</p>
+<p><%= check_box_tag "cursos[]",t(:lic_quimica), (checked = true if Curso.find(:first, :conditions => {:aluno_id => current_usuario.id, :nome_do_curso => t(:lic_quimica)})) %> Licenciatura em química</p>
+
+<br>
+<h3>Disciplinas ofertadas para o <%= @periodo.quadrimestre %> de <%= @periodo.ano %></h3>
+<table>
+  <tr>
+
+
+    <th></th>
+    <th>Codigo</th>
+    <th>Nome</th>
+    <th>Turno</th>
+    <th>Dia</th>
+    <th>Horario de inicio</th>
+    <th>Horario de fim</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @disciplinas.each do |disciplina| %>
+  
+
+  <tr>
+    
+    <td>
+    <%= check_box_tag "disciplinas[]", disciplina.id, (checked = true if disciplina_escolhida(disciplina.id))%> </td>
+
+    <td><%= disciplina.codigo %></td>
+    <td><%= disciplina.nome %></td>
+    <td><%= disciplina.turno %></td>
+    <td><%= disciplina.dia %></td>  
+    <td><%= I18n.l disciplina.horario_inicio, :format => :hora %></td>
+    <td><%= I18n.l disciplina.horario_fim, :format => :hora %></td>
+    
+    </tr>
+    <% end %>
+
+  
+</table>
+
+<%= f.submit "salvar"%>
+<br />
+
+<%end%>
+
+

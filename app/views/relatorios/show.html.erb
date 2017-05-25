@@ -1,0 +1,59 @@
+<% if flash[:notice]%>
+<p class="flash-notice"><font color = "green" size="5"><%= flash[:notice] %></font></p>
+<br>
+  <% end %>
+<h2><%=@titulo%></h2>
+<p>Para enviar o relatório para mais de um email, separar por ";".</p>
+    <table>
+  <tr>
+    <th>Código da disciplina</th>
+    <th>Nome</th>
+    
+    <th>Visualizar relatório</th>
+    <th>Enviar para:</th>
+  </tr>
+
+  <% @disciplinas.each do |disciplina| %>
+  <%= form_for(:lista, :url => {:controller => 'relatorios', :action => 'envio', :periodo => disciplina.periodo_id, :curso => retorna_abrev_curso(disciplina.id), :codigo => disciplina.codigo}) do |f| %>
+  <% if filtro_relatorio(disciplina.id) %>
+  
+  <% if filtro_centro(disciplina.id) %>
+    <tr>
+        <td><%=disciplina.codigo%></td>
+        <td><%=disciplina.nome%></td>
+        
+       
+        
+        
+
+        <td><%= link_to "Avançar", :controller => 'relatorios', :action => 'view', :periodo => disciplina.periodo_id,:curso => retorna_abrev_curso(disciplina.id), :codigo => disciplina.codigo%></td>
+
+        <td><%= f.text_field :emails%></td>        
+        <td><%= f.submit "enviar emails"%></td>
+    
+    </tr>
+  <% end %>
+  <% end %>  
+  <% end %>
+  <% end %>  
+</table>
+<table>
+  <tr>
+    <th>Visualizar</th>
+    <th>Enviar para:</th>
+    
+  </tr>
+ 
+  <%= form_for(:lista, :url => {:controller => 'relatorios', :action => 'envio2',:id=>(params[:id])}) do |f| %>
+ 
+  <td><%= link_to "Relatório Unificado", :contoller=> 'relatorios', :action=> 'unificado',:id=>(params[:id]),:centro=>current_usuario.centro, :format=> 'pdf'%> </td>
+  
+  <td><%= f.text_field :emails%></td>        
+        <td><%= f.submit "enviar emails"%></td>
+        
+        <%end%>
+       
+</table>
+<%= render 'lista' %>
+
+

@@ -1,0 +1,156 @@
+
+<% if flash[:erro]%>
+    <p class="flash-notice"><font color = "red" size="5"><%= flash[:erro] %></font></p>
+    <br>
+<% end %>
+
+ <body onload="hello();">  
+   
+    <h3><b>Informações do aluno:</b></h3>
+<p><b>Nome do aluno:</b> <%= @aluno.nome%>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>RA:</b> <%= @aluno.ra %></p>
+<p><b>Email:</b> <%= @aluno.email%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Telefone para contato:</b> <%= @aluno.telefone %></p><br>
+<p><b>Curso(s):</b></p>
+<% @cursos.each do |curso| %>
+    <p><%=curso.nome_do_curso %></p>
+<% end %>
+    <br>  
+    
+ <%= render 'historico' %>   
+    <br><br><br>  
+<h3><b>O aluno solicitou Matrícula nas seguintes disciplinas deste período letivo:</b></h3>
+<% @matriculas.each do |matricula| %>
+  <% if filtro_centro(matricula.disciplina_id) %>
+  <% disciplina = Disciplina.find(matricula.disciplina_id) %>  
+  <p><b><%= disciplina.codigo %>: <%=disciplina.nome%></b>. Ofertada <%= disciplina.dia %>, das <%= I18n.l @disciplina.horario_inicio, :format => :hora%> às <%= I18n.l @disciplina.horario_fim, :format => :hora%></p>
+  
+  <%if mensagem_disponivel(matricula.id) %>
+      <li><b>Mensagem e/ou arquivo enviados pelo aluno durante a matrícula:</b></li>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= matricula.mensagem %><br>
+  <% end %>
+      
+  <% if arquivo_anexo(matricula.id) %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= link_to "Baixar arquivo anexo", :controller => 'matriculas', :action => 'download', :id => @matricula.id%><br><br>
+  <% end %>      
+      
+<% end %>
+
+<% end %>
+      
+ <br><h3><b>Análise das matrículas</b></h3> 
+  <%= form_for(:formulario, :url => {:controller => 'matriculas', :action =>'analise', :id => @aluno.id}) do |f| %>
+ </br>
+  
+
+  
+  <br>
+  <p><b>Verificação dos critérios pela Divisão Acadêmica do centro:</b></p>
+  <p>1. Já teve solicitação de estágio <b>DEFERIDA</b> anteriormente? 
+    <% if @historico.blank? %>
+      <% resposta_2 = "Não" %> 
+      <b>Não</b>
+      
+    <% else %>
+      <% resposta_2 = "Sim" %>      
+      <b>Sim</b>
+    <% end %> 
+    <%= f.hidden_field :resposta_2, :value => resposta_2 %>
+  </p>
+  <p>2. Completou, no mínimo, a metade dos quadrimestre previstos para o curso (6 quadrimestres)? <%= f.radio_button :resposta_3, "Sim", :onclick => "change()" %> Sim   <%= f.radio_button :resposta_3, "Não", :onclick => "change()" %>Não</p> 
+  <p>3. Cursou ou está matriculado em uma ou mais disciplinas de Práticas de Ensino? <%= f.radio_button :resposta_4, "Sim", :onclick => "change()" %> Sim   <%= f.radio_button :resposta_4, "Não", :onclick => "change()" %>Não</p>
+  <p>4. Integrou, com aprovação, metade dos créditos de disciplinas do curso? <%= f.radio_button :resposta_5, "Sim", :onclick => "change()" %> Sim   <%= f.radio_button :resposta_5, "Não", :onclick => "change()" %>Não</p>
+  <p>5. Outros motivos: <%= check_box :formulario, :resposta_6, {:onchange => "change()"} ,"Sim","Não"%></p>
+  
+  <p> <b><%= f.label :mensagem_ao_aluno %> </b></p>
+<%= f.text_area :mensagem %><br>
+<p><font color = "red">ATENÇÃO: O aluno será considerado reprovado se qualquer um dos critérios tiver resposta "Não" ou se o checkbox da resposta nº 5 estiver marcado.</font></p>
+<br>
+
+<p>Com base nas respostas fornecidas, o parecer do aluno é:</p>  
+<div id="div_aprovado">
+  <p><b>APROVADO</b></p>
+</div>
+
+<div id="div_reprovado">
+  <p><b>REPROVADO</b></p>
+</div> 
+<%= f.submit "Enviar análise" %>
+
+
+  
+<%end%>  
+  
+</body>
+
+  <script type="application/javascript">
+    
+    function hello() 
+{
+  
+      document.getElementById("div_aprovado").style.display = "none";
+      document.getElementById("div_reprovado").style.display = "none";
+
+}
+
+    var aprovadoDiv = document.getElementById("div_aprovado");
+    var reprovadoDiv = document.getElementById("div_reprovado");
+
+    var resp3=document.getElementByName("formulario[resposta_3]").value.checked;
+    
+  function validate() {
+        if (document.getElementById("formulario_resposta_6").checked) {
+            alert("checked");
+        } else {
+            alert("You didn't check it! Let me check it for you.");
+        }
+    }   
+    
+    function change() 
+    {
+    
+      var radios = document.getElementsByTagName('input');
+      var resp3;
+      var resp4;
+      var resp5;
+
+      
+      
+      for (var i = 0; i < radios.length; i++) {
+          if (radios[i].name === 'formulario[resposta_3]' && radios[i].checked) {
+          // get value, set checked flag or do whatever you need to
+          resp3 = radios[i].value;
+          
+          }
+      }    
+      
+      for (var i = 0; i < radios.length; i++) {
+          if (radios[i].name === 'formulario[resposta_4]' && radios[i].checked) {
+          // get value, set checked flag or do whatever you need to
+          resp4 = radios[i].value;
+          
+          }
+      }       
+
+      for (var i = 0; i < radios.length; i++) {
+          if (radios[i].name === 'formulario[resposta_5]' && radios[i].checked) {
+          // get value, set checked flag or do whatever you need to
+          resp5 = radios[i].value;
+          
+          }
+      }      
+
+      
+      if (document.getElementById("formulario_resposta_6").checked || resp3 == "Não" || resp4 == "Não" || resp5 == "Não"){
+          document.getElementById("div_aprovado").style.display = "none";
+          document.getElementById("div_reprovado").style.display = "block";
+      }
+      else
+      {
+          document.getElementById("div_aprovado").style.display = "block";
+          document.getElementById("div_reprovado").style.display = "none";
+      }
+
+    }
+
+
+      
+  </script>

@@ -1,0 +1,31 @@
+
+<p id="notice"><%= notice %></p>
+<%@turno=Disciplina.find(:first,:conditions=>{:id=>@cancelamento.disciplina_id})%>
+   <%@data=Periodo.find(:first,:conditions=>{:id=>@turno.periodo_id})%>
+<p>
+  <b>Aluno:</b>
+  <%= retorna_nome_aluno(@cancelamento.aluno_id) %>
+</p>
+<p>
+  <b>Disciplina:</b>
+  <%= retorna_nome_disciplina(@cancelamento.disciplina_id) %>
+</p>
+
+<p>
+  <b>Justificativa:</b>
+  <%= @cancelamento.justificativa %>
+</p>
+
+<p>
+  <b>Quadrimestre:</b>
+  <%= @data.quadrimestre %>
+</p>
+<p>
+  <b>Turno:</b>
+  <%= @turno.turno %>
+</p>
+
+<p><%= link_to 'Reavaliar', edit_cancelamento_path(@cancelamento) %> </p>
+
+<p><%= link_to 'Voltar', '/estagios/cancelamento' %></p>
+

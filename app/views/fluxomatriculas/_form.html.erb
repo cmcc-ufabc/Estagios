@@ -1,0 +1,33 @@
+<%= form_for(@fluxomatricula) do |f| %>
+  <% if @fluxomatricula.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fluxomatricula.errors.count, "error") %> prohibited this fluxomatricula from being saved:</h2>
+
+      <ul>
+      <% @fluxomatricula.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :aluno_id %><br />
+    <%= f.text_field :aluno_id %>
+  </div>
+  <div class="field">
+    <%= f.label :periodo_id %><br />
+    <%= f.text_field :periodo_id %>
+  </div>
+  <div class="field">
+    <%= f.label :disciplina_id %><br />
+    <%= f.text_field :disciplina_id %>
+  </div>
+  <div class="field">
+    <%= f.label :data %><br />
+    <%= f.text_field :data %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

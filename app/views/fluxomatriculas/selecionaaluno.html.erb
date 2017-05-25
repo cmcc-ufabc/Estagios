@@ -1,0 +1,26 @@
+<h1>Seleciona o Aluno</h1>
+
+<table>
+  <tr>
+    <th>Aluno</th>
+    <th>RA</th>
+    <th></th>
+  </tr>
+<% @teste=Array.new %>
+  <% @fluxomatriculas=Fluxomatricula.find(:all,:conditions=>{:periodo_id=>params[:periodo_id]}) %>
+   <% @teste=Array.new %>
+<% @fluxomatriculas.each do |fluxomatricula| %>
+  <tr>
+     <%@teste.append(fluxomatricula.aluno_id)%>
+      <%end%>
+   <% (@teste.uniq).each do |teste| %>
+  <tr>
+    <td><%= retorna_nome(teste) %></td>
+    <td><%= retorna_ra(teste)%></td>
+    <td><%= link_to 'Avançar', "/estagios/fluxo/"+(params[:periodo_id]).to_s+"/"+(teste) %></td>
+   
+  </tr>
+<% end %>
+</table>
+<br />
+

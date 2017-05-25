@@ -1,0 +1,27 @@
+<p>
+  <b>Nome do aluno:</b>
+  <%= @aluno.nome %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @aluno.email %>
+</p>
+
+<p>
+  <b>RA:</b>
+  <%= @aluno.ra %>
+</p>
+
+<p>
+  <b>Telefone para contato:</b>
+  <%= @aluno.telefone %>
+</p>
+
+<% unless @cursos.blank? %>
+    <br>
+    <p><b>Cursos informados durante a matrícula:</b></p>
+    <% @cursos.each do |curso| %>
+        <p><%= curso.nome_do_curso %></p>        
+    <% end %>
+<% end %>

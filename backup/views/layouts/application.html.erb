@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="images/style.css" type="text/css" />
+  <title>Estágios</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+
+
+<div id="templatemo_body_wrapper">
+<div id="templatemo_wrapper">
+
+	<div id="tempaltemo_header">
+    	<span id="header_icon"></span>
+    	<div id="header_content">
+        	<div id="site_title">
+                  <p><b><h3>Universidade Federal do ABC - Sistema de gerenciamento de pedidos de estágio</h3></b></p>   </div>
+          <p>Sistema desenvolvido para auxiliar no processo de matrícula em estágios das licenciaturas do CMCC e CCNH</p>
+		 
+		</div>
+    </div> <!-- end of header -->
+    
+    <div id="templatemo_main_top"></div>
+    <div id="templatemo_main"><span id="main_top"></span><span id="main_bottom"></span>
+    	
+        <div id="templatemo_sidebar">
+        
+        	<div id="templatemo_menu">
+        	<div id="templatemo_menu2">
+                <ul>
+                  <%if usuario_signed_in? %>
+                      <!-- Usuário logado -->
+                      
+                      <% if current_usuario.tipo == "Administrador"%>
+                          <li><%=link_to "Avisos", "/estagios"%></li>
+                          <li><%=link_to "Períodos", "/estagios/periodos"%></li>
+                          <li><%= link_to "Disciplinas", "/estagios/disciplinas"%></li>                          
+                          <li><%= link_to "Analisar pedidos de matrícula", "/estagios/matriculas"%></li>
+                          <li><%= link_to "Relatórios de matrícula", "/estagios/relatorios"%></li>
+                          <li><%= link_to "Conceitos", "/estagios/conceitos"%></li> 
+                          <li><%=link_to "Editar usuários", "/estagios/users"%></li>
+                          
+                       
+                          
+                      <% elsif current_usuario.tipo == "Secretaria"%>
+                          <li><%=link_to "Avisos", "/estagios"%></li>
+                          <li><%=link_to "Períodos", "/estagios/periodos"%></li>
+                          <li><%= link_to "Disciplinas", "/estagios/disciplinas"%></li>
+                          <li><%= link_to "Analisar pedidos de matrícula", "/estagios/matriculas"%></li>
+                          <li><%= link_to "Relatórios de matrícula", "/estagios/relatorios"%></li> 
+                          <li><%= link_to "Conceitos", "/estagios/conceitos"%></li> 
+                          <li><%=link_to "Editar alunos", "/estagios/users"%></li>
+                      
+                      <%elsif current_usuario.tipo == "Aluno"%>
+                            <li><%=link_to "Avisos", "/estagios"%></li>
+                            <%if periodo_de_matricula()%>
+                                <li><%= link_to "Realizar matrícula", "/estagios/cadastro"%></li>
+                            <%else%>
+                                <li><h1>Realizar matrícula</h1></li>
+                            <%end%>                         
+
+                      <%end%>   
+                          
+                          
+                      
+                      <li><%= link_to "Sair", :destroy_usuario_session, :method => :delete %></li>
+                  <%else%>
+                      <!-- Usuário não logado -->
+                      
+                      <li><%= link_to"Logar" , "/estagios/usuarios/sign_in" %> </li>
+                      <li><%= link_to"Cadastrar novo usuário" , "/estagios/usuarios/sign_up" %> </li>    
+                  
+                  <%end%>
+                  
+                	
+            	</ul>    	
+            	</div>
+            </div> <!-- end of templatemo_menu -->
+        
+        	      
+            <div class="cleaner"></div>
+        </div> <!-- end of sidebar -->
+        
+        <div id="templatemo_content">
+       
+				 <div class="cleaner h30"></div>
+                
+          </div>
+        <div id="templatemo_content">
+          <%if usuario_signed_in?%>
+          
+             <% if current_usuario.centro == "CMCC" or current_usuario.centro == "CCNH" %>
+                <p><b>Logado como:</b> <%= current_usuario.nome%> - <%= current_usuario.centro %>.</p>
+             <% else %> 
+                <p><b>Logado como:</b> <%= current_usuario.nome%></p>
+             <% end %>
+              
+              <p><b>Não se esqueça se encerrar sua sessão antes de fechar o navegador ou acessar outros sites.</b></p>
+              <br><br>
+          <%end%>
+        	
+            <div class="content_box">
+            	
+                <%= yield %>
+                
+              <div class="cleaner h30"></div>
+                
+          </div>
+            
+           
+        
+            <div class="content_box last_box">
+            	
+            </div>
+            
+        </div>
+        
+        <div class="cleaner"></div>    
+    </div>
+    
+    <div id="templatemo_main_bottom">
+    	
+    </div>
+
+</div> <!-- end of wrapper -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

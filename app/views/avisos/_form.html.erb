@@ -1,0 +1,35 @@
+<% if flash[:erro]%>
+    <p class="flash-notice"><font color = "red" size="5"><%= flash[:erro] %></font></p>
+    <br>
+<% end %>
+
+<%= form_for(@aviso) do |f| %>
+  <% if @aviso.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@aviso.errors.count, "erro") %> impediu que esse aviso fosse salvo:</h2>
+
+      <ul>
+      <% @aviso.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.hidden_field :autor, :value => current_usuario.nome %>
+  </div>
+  <div class="field">
+    <%= f.label :titulo %><br />
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :detalhes %><br />
+    <%= f.text_area :detalhes %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

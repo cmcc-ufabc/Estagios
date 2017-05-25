@@ -1,0 +1,74 @@
+<% if current_usuario.tipo=='Aluno' %>
+<%= form_for(@cancelamento) do |f| %>
+  <% if @cancelamento.errors.any? %>
+    <div id="error_explanation">
+      <h2>Por favor, corrija os erros abaixo:</h2>
+
+      <ul>
+      <% @cancelamento.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%@periodoatual=Periodo.find(:last)%>
+<div class="field">
+    <%= f.hidden_field :periodo_id, :value =>@periodoatual.id %>
+  </div>
+
+
+ <div class="field">
+    <%= f.label :Nome_da_Disciplina %><br />
+    <%= f.select :nomedis, $disciplinas_aux.collect{|m| retorna_nome_dis([m.disciplina_id])}%> 
+  </div>
+
+
+ <div class="field">
+    <%= f.label :"Justificativa (*)" %><br />
+    
+    <%= f.text_field :justificativa %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Avançar" %>
+  </div>
+<% end %>
+
+<%else%>
+<%= form_for(@cancelamento) do |f| %>
+  <% if @cancelamento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cancelamento.errors.count, "error") %> prohibited this cancelamento from being saved:</h2>
+
+      <ul>
+      <% @cancelamento.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <% if current_usuario.tipo == "Administrador"%>
+
+
+
+<%end%>
+
+ <div class="field">
+    <%= f.label :Mensagem_da_Secretaria %><br />
+    <%= f.text_field :mensagem %>
+  </div>
+<div class="field">
+    <%= f.label :Justificativa_do_Aluno%><br />
+    <%= f.text_area :justificativa %>
+  </div>
+ <div class="field">
+    <%= f.label :Parecer %><br />
+    <%= f.select :parecer,[["Deferido"],["Indeferido"]]   %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Salvar'%>
+  </div>
+<% end %>
+
+<%end%>

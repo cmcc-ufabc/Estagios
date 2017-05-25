@@ -1,0 +1,22 @@
+       <table>
+          <tr>
+             <th>Nome</th>
+             <th>RA</th>
+             <th>Disciplina</th>
+             <th>Código</th>
+             <th>Conceito</th>
+             <th>Horas</th>
+             <th>Quadrimestre</th>
+          </tr>
+          <% @tabulars.each do |tabular| %>
+             <tr>
+               <td><%= retorna_nome_aluno(tabular.aluno_id) %></td>
+               <td><%= retorna_ra(tabular.aluno_id) %></td>
+               <td><%= retorna_nome_disciplina(tabular.disciplina_id) %></td>
+               <td><%= retorna_codigo(tabular.disciplina_id) %></td>
+               <td><%= tabular.conceito %></td>
+               <td><%= tabular.horas %></td>
+               <td><%= retorna_periodo_dssi(@periodo) %></td>
+             </tr>
+          <% end %>
+       </table>

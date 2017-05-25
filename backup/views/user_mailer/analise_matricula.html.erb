@@ -1,0 +1,11 @@
+<p>Prezado(a) <%=@aluno.nome%></p>
+<p>Sua matrícula na disciplinada <%= @disciplina.nome %> foi analisada pela secretaria acadêmica do centro. O parecer foi: <%=@matricula.parecer%></p>
+
+<p><b>Mensagem da secretaria:</b></p>
+<% if @matricula.observacao != nil or @matricula.observacao "" %>
+    <%= @matricula.observacao %>
+<% else %>
+    Nenhuma mensagem foi enviada.
+<% end %>
+    
+<p>Essa mensagem foi gerada automaticamente, favor não responder. Em caso de dúvida, contate a secretaria acadêmica</p>

@@ -1,0 +1,36 @@
+<% if flash[:notice]%>
+<p class="flash-notice"><font color = "green" size="5"><%= flash[:notice] %></font></p>
+<br>
+  <% end %>
+
+<% if flash[:erro]%>
+<p class="flash-notice"><font color = "green" size="5"><%= flash[:notice] %></font></p>
+<br>
+  <% end %>
+
+<h3><%='Relatórios já enviados ao DSSI'%></h3>
+
+
+
+<table>
+<tr>
+    
+  <th>Relatórios Entregues</th>
+  <th>Data de Envio</th>
+  
+  </tr>
+
+  
+<%@matriz. each do |matriz|%>
+
+  <tr>
+  <% if matriz== nil%>
+  <%else%>
+  <td><%= link_to 'Relatorio ' +0.to_s+matriz.to_s+@array.to_s, '/estagios/enviados/'+params[:id].to_s+'/'+matriz.to_s  %></td>
+  <%end%>
+
+  </tr>
+<%end%>
+
+</table>
+

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Aluno:</b>
+  <%= @fluxomatricula.aluno_id %>
+</p>
+
+<p>
+  <b>Periodo:</b>
+  <%= @fluxomatricula.periodo_id %>
+</p>
+
+<p>
+  <b>Disciplina:</b>
+  <%= @fluxomatricula.disciplina_id %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @fluxomatricula.data %>
+</p>
+
+
+<%= link_to 'Edit', edit_fluxomatricula_path(@fluxomatricula) %> |
+<%= link_to 'Back', fluxomatriculas_path %>

@@ -1,0 +1,22 @@
+<h1>Períodos cadastrados</h1>
+<p>Selecione o período que deseja enviar os conceitos:</p>
+
+<table>
+  <tr>
+    <th>Quadrimestre</th>
+    <th>Ano</th>
+    <th></th>
+  </tr>
+
+<% @periodos.each do |periodo| %>
+  <tr>
+    <td><%= periodo.quadrimestre %></td>
+    <td><%= periodo.ano %></td>
+    <td><%= link_to 'Avançar', :controller => 'conceitos', :action => 'show', :id => periodo.id %></td> 
+    
+  </tr>
+<% end %>
+</table>
+
+<br />
+

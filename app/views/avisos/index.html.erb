@@ -1,0 +1,53 @@
+<% if flash[:notice]%>
+<p class="flash-notice"><font color = "green" size="5"><%= flash[:notice] %></font></p>
+<br>
+  <% end %>
+
+<% if flash[:erro]%>
+<p class="flash-notice"><font color = "red" size="5"><%= flash[:erro] %></font></p>
+<br>
+  <% end %>
+
+<h1>Avisos da secretaria</h1>
+
+<% if current_usuario.tipo == "Secretaria" or current_usuario.tipo == "Administrador" %>
+
+    <%= link_to 'Novo aviso', new_aviso_path %>
+    <br>
+<% end %>
+
+<% if @avisos.blank? %>
+  <p>As secretarias não passaram nenhum aviso para esse período letivo.</p>
+
+<% end %>
+<% @avisos.each do |aviso| %>
+<h3> <%=aviso.titulo%></h3>
+<%=aviso.detalhes%>
+</br><span><b>postado por  <%= aviso.autor %> em <%= aviso.updated_at.to_s_br %> </b></span>
+</br><span><b>Centro  <%= aviso.centro %></b></span>
+  <% if current_usuario.nome == aviso.autor or current_usuario.tipo == "Administrador"%> |
+  
+        <%= link_to 'Editar', edit_aviso_path(aviso) %>
+        <%= link_to 'Deletar', :controller => 'avisos', :action => 'delete', :id => aviso.id%>
+
+  <%end%> 	
+<br>
+<br>
+<% end %>
+
+<br />
+
+<% if @realizou_matricula%>
+<hr>
+<br>
+<h3>Você solicitou matrícula nas seguintes disciplinas:</h3> 
+<p><b>Caso queira enviar uma mensagem e/ou um arquivo anexo em formato .PDF para a secretaria com informações adicionais
+ sobre a matrícula na disciplina ou para obter redução de carga horária, preencha o os campos e clique em 'enviar'.</b></p>
+ <p><b>OBS:</b> Não é necessário enviar cópias caso o anexo possa ser utilizado em mais de uma matrícula, apenas informe na mensagem.</p>
+<%= render 'disciplinas' %>
+
+
+<p><%= link_to 'Clique aqui', :controller => 'matriculas', :action => 'email_matriculas'%> caso queira receber detalhamento da matrícula por E-mail.</p>
+<%end%>
+<br>
+

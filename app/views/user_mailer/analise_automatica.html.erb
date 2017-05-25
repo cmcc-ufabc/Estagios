@@ -1,0 +1,29 @@
+<%#
+# To change this license header, choose License Headers in Project Properties.
+# To change this template file, choose Tools | Templates
+# and open the template in the editor.
+%>
+ Prezado(a): <%= @aluno %>
+
+ <p>Sua solicitação de matricula nas disciplinas listadas abaixo, foram automaticamente <b><i>Aprovadas</i></b>.</p>
+ 
+<table border="2">
+  <tr>
+    <th>Disciplina</th>
+    <th>Disciplina</th>
+
+  </tr>
+
+<% @disciplinas.each do |disciplina| %>
+ 
+    <td><%= disciplina.codigo %></td>
+    <td><%= disciplina.nome %></td>
+  
+  </tr>
+  <%end%>
+
+</table>
+ 
+ <h>
+<p>Essa mensagem foi gerada automaticamente, favor não responder. Em caso de dúvida, contate a secretaria acadêmica</p>
+ </h>

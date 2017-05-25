@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/app/helpers/cancelamentos_helper.rb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/app/models/cancelamento.rb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/app/views/conceitos/_pendentes.html.erb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/app/controllers/conceitos_controller.rb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/config/initializers/mime_types.rb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/app/helpers/conceitos_helper.rb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/app/controllers/registrations_controller.rb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/app/controllers/periodos_controller.rb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/app/views/conceitos/dssi.xlsx.erb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/config/routes.rb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/app/controllers/tabela.rb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/app/models/usuario.rb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/app/views/conceitos/relatorio.pdf.prawn</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/app/views/cancelamentos/_form.html.erb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/app/views/conceitos/dssi.xls.erb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/Gemfile.lock</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/app/models/disciplina.rb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/app/controllers/cancelamentos_controller.rb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/app/models/teste.rb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/app/models/curso.rb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/app/models/aviso.rb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/config/initializers/xls_renderer.rb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/app/models/matricula.rb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/app/controllers/disciplinas_controller.rb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/config/application.rb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/app/models/formulario.rb</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/Rakefile</file>
+            <file>file:/C:/Users/erossi/Documents/Programas%202015/Estagio/app/controllers/relatorios_controller.rb</file>
+        </group>
+    </open-files>
+</project-private>

@@ -1,0 +1,33 @@
+<%= form_for(@dssirelatorio) do |f| %>
+  <% if @dssirelatorio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dssirelatorio.errors.count, "error") %> prohibited this dssirelatorio from being saved:</h2>
+
+      <ul>
+      <% @dssirelatorio.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :dataenvio %><br />
+    <%= f.text_field :dataenvio %>
+  </div>
+  <div class="field">
+    <%= f.label :aluno %><br />
+    <%= f.text_field :aluno %>
+  </div>
+  <div class="field">
+    <%= f.label :matricula_id %><br />
+    <%= f.text_field :matricula_id %>
+  </div>
+  <div class="field">
+    <%= f.label :ci %><br />
+    <%= f.text_field :ci %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

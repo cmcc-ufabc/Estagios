@@ -1,0 +1,46 @@
+<% if flash[:notice]%>
+<p class="flash-notice"><font color = "green" size="5"><%= flash[:notice] %></font></p>
+<br>
+  <% end %>
+
+<% if flash[:erro]%>
+<p class="flash-notice"><font color = "red" size="5"><%= flash[:erro] %></font></p>
+<br>
+  <% end %>
+
+<h1>Usuários cadastrados no sistema</h1>
+
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Email</th>
+    <% if current_usuario.tipo == "Administrador"%>
+        <th>Tipo de usuário</th>
+        <th>Centro</th>
+    <% end %>
+
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @usuarios.each do |usuario| %>
+  
+  <tr>
+    <td><%= usuario.nome%></td>
+    <td><%= usuario.email%></td>
+    <% if current_usuario.tipo == "Administrador"%>
+        <td><%= usuario.tipo%></td>
+        <td><%= usuario.centro %></td>
+    <% end %>
+
+    <td><%= link_to "Editar", :controller => 'users', :action => 'edit', :id => usuario.id%></td>
+
+  </tr>
+  <%end%>
+
+</table>
+
+<br />
+
+

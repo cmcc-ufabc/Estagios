@@ -1,0 +1,38 @@
+<h3><b>Histórico</b></h3>
+
+<% if @historico.blank? %>
+  <p>Nenhuma solicitação de estágio deferida até o momento.</p>
+<% else %>
+  
+ <p>A tabela abaixo apresenta as matrículas anteriores com solicitação de estágio deferida</p>
+
+  <table>
+    <tr>
+      <th>Período</th>
+      <th>Curso</th>
+      <th>Código</th>
+      <th>Disciplina</th>    
+    
+    </tr>
+    
+  
+  
+
+<% @historico.each do |matricula_anterior| %>
+
+    <tr>
+        <td>
+        <% disciplina = Disciplina.find(matricula_anterior.disciplina_id) %>
+        <% periodo = Periodo.find(matricula_anterior.periodo_id) %>
+        <%= periodo.quadrimestre %> de <%= periodo.ano %>
+        </td>
+        <td> <%= disciplina.curso %></td>
+        <td> <%= disciplina.codigo %></td>
+        <td> <%= disciplina.nome %></td>
+    </tr>
+        
+<% end %>
+  
+</table> 
+<% end %>  
+

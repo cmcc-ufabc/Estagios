@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Codigo:</b>
+  <%= @disciplina.codigo %>
+</p>
+
+<p>
+  <b>Nome da disciplina:</b>
+  <%= @disciplina.nome %>
+</p>
+
+<p>
+  <b>Curso:</b>
+  <%= @disciplina.curso %>
+</p>
+
+<p>
+  <b>Turno:</b>
+  <%= @disciplina.turno %>
+</p>
+
+<p>
+  <b>Dia:</b>
+  <%= @disciplina.dia %>
+</p>
+
+<p>
+  <b>Horario de inicio:</b>
+  <%= I18n.l @disciplina.horario_inicio, :format => :hora %>
+</p>
+
+<p>
+  <b>Horario de fim:</b>
+  <%= I18n.l @disciplina.horario_fim, :format => :hora %>
+</p>
+

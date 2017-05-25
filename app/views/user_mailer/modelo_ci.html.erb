@@ -1,0 +1,14 @@
+<p><font face=times><b>Comunicação interna</b></font></p>
+<p align="right"> <font face=times>Santo Andre, <%= @agora %></font></p>
+<p><font face=times>Assunto: <b>lançamento de estágio supervisionado do curso <%= @curso %></b></font></p>
+<br>
+<p><font face=times>à PROGRAD/DSSI</p>Solicitamos o lançamento no histórico escolar e posterior arquivo do(s) seguinte(s) documento(s)
+de estágio supervisionado do curso <%= @curso %>, referentes ao <%= @periodo.quadrimestre %> de <%= @periodo.ano %></p>
+
+<p>A lista pode ser acessada através <%= link_to "deste link", @link %></p>
+<br>
+
+<p><font face=times>Essa mensagem foi gerada automaticamente, favor não responder. O envio foi solicitado por <%= @remetente.nome %> (<%= @remetente.email %>) </font></p>
+
+
+

@@ -1,0 +1,23 @@
+
+<h1>Períodos cadastrados</h1>
+<p>Selecione o período que deseja gerar os relatórios:</p>
+
+<table>
+  <tr>
+    <th>Quadrimestre</th>
+    <th>Ano</th>
+    <th></th>
+  </tr>
+<%@periodos=Periodo.find(:all,:order => "ano ASC" )%>
+<% @periodos = @periodos.reverse!%>
+<% @periodos.each do |periodo| %>
+  <tr>
+    <td><%= periodo.quadrimestre %></td>
+    <td><%= periodo.ano %></td>
+    <td><%= link_to 'Avançar', :controller => 'cancelamentos', :action => 'index', :id => periodo.id %></td> 
+    
+  </tr>
+<% end %>
+</table>
+
+<br />

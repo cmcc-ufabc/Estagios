@@ -1,0 +1,63 @@
+<% if flash[:notice]%>
+<p class="flash-notice"><font color = "green" size="5"><%= flash[:notice] %></font></p>
+<br>
+  <% end %>
+
+<% if flash[:erro]%>
+<p class="flash-notice"><font color = "green" size="5"><%= flash[:erro] %></font></p>
+<br>
+  <% end %>
+
+<h1>Análise de Matrículas</h1>
+
+<p>A tabela abaixo apresenta as solicitações de estágio realizadas para cursos do <%= current_usuario.centro%>.</p>
+
+<table>
+  <tr>
+    <th>Aluno</th>
+    <th>RA</th>
+ <!--   <th>Código da disciplina</th> -->
+    <th>Nome da disciplina</th>
+    <th>Mensagem à secretaria</th>
+<!--    <th>Turno</th>
+    <th>Dia</th>
+    <th>Horario</th> -->
+    <th>Parecer</th>
+    <th>Mensagem ao aluno (opcional)</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @matriculas.each do |matricula| %>
+  <%= form_for(:matricula, :url => {:controller => 'matriculas', :action =>'analise', :id => matricula.id}) do |f| %>
+  
+  <% if filtro_centro(matricula.disciplina_id) %>
+  <tr>
+    <td><%= link_to retorna_nome_aluno(matricula.aluno_id), :controller => 'users', :action => 'show', :id => matricula.aluno_id%></td>
+    <td><%= retorna_ra(matricula.aluno_id)%></td>
+ <!--   <td><%= link_to retorna_codigo(matricula.disciplina_id), :controller => 'disciplinas', :action => 'show', :id => matricula.disciplina_id%></td> -->
+    <td><%= link_to retorna_nome_disciplina(matricula.disciplina_id), :controller => 'disciplinas', :action => 'show', :id => matricula.disciplina_id%></td>
+    <td>
+      <% if mensagem_disponivel(matricula.id) %>
+            <%= link_to "Visualizar mensagem", matricula%>
+             
+      <% end %> 
+    </td>
+    
+
+<!--    <td>Turno</td>
+    <td>Dia</td>
+    <td><%= retorna_horario_disciplina(matricula.disciplina_id) %></td> -->
+    <td><%= f.select :parecer,[["Aprovado"],["Reprovado"]] %></td>
+    <td><%=f.text_field :observacao, :size => 15%> </td>
+    <td><%=f.submit "Enviar"%></td>
+  </tr>
+  <%end%>
+
+<% end %>
+<%end%>  
+</table>
+
+<br />
+
+

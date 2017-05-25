@@ -1,0 +1,43 @@
+<h1><%= @titulo%></h1>
+<%= link_to 'Cadastrar Nova Disciplina', new_disciplina_path %>
+<table>
+  <tr>
+    <% if current_usuario.tipo == "Aluno"%>
+        <th></th>
+    <%end%>
+    
+ <!--   <th>Curso</th> -->
+    <th>Codigo</th>
+    <th>Nome</th>
+    <th>Turno</th>
+    <th>Dia</th>
+    <th>Horario de inicio</th>
+    <th>Horario de fim</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @disciplinas.each do |disciplina| %>
+  
+<% if filtro_centro(disciplina.id) %>
+  <tr>    
+ 
+    <td><%= disciplina.codigo %></td>
+    <td><%= disciplina.nome %></td>
+    <td><%= disciplina.turno %></td>
+    <td><%= disciplina.dia %></td>
+    <td><%= I18n.l disciplina.horario_inicio, :format => :hora %></td>
+    <td><%= I18n.l disciplina.horario_fim, :format => :hora %></td>
+    <td><%= link_to 'Detalhes', disciplina %></td>    
+    <td><%= link_to 'Editar', edit_disciplina_path(disciplina) %></td>
+    <td><%= link_to 'Deletar', :controller => 'disciplinas', :action => 'delete', :id => disciplina.id %></td>
+     
+  </tr>
+<% end %>  
+<% end%>  
+
+</table>
+
+<br />
+

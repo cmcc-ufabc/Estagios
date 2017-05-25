@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  disciplina_id: 1
+  aluno_id: 1
+  periodo_id: 1
+  situacao: 1
+
+two:
+  disciplina_id: 1
+  aluno_id: 1
+  periodo_id: 1
+  situacao: 1

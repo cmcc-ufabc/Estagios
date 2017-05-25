@@ -1,0 +1,36 @@
+<p id="notice"><font size="5>"<%= notice %></font></p>
+
+<p>
+  <b>Periodo:</b>
+  <%= @periodo.quadrimestre %>
+</p>
+
+<p>
+  <b>Ano:</b>
+  <%= @periodo.ano %>
+</p>
+
+<p>
+  <b>Início da matricula:</b>
+  <%= I18n.l @periodo.matricula_inicio %>
+</p>
+
+<p>
+  <b>Fim da matricula:</b>
+  <%= I18n.l @periodo.matricula_fim %>
+</p>
+
+<p>
+  <b>Inicio do reajuste:</b>
+  <%= I18n.l @periodo.reajuste_inicio %>
+</p>
+
+<p>
+  <b>Fim do reajuste:</b>
+  <%= I18n.l @periodo.reajuste_fim %>
+</p>
+
+<font size ="3">
+  <%= link_to 'Editar', edit_periodo_path(@periodo) %> |
+  <%= link_to 'Voltar', periodos_path %>
+</font>

@@ -1,0 +1,29 @@
+<h1>Listing fluxomatriculas</h1>
+
+<table>
+  <tr>
+    <th>Aluno</th>
+    <th>Periodo</th>
+    <th>Disciplina</th>
+    <th>Data</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @fluxomatriculas.each do |fluxomatricula| %>
+  <tr>
+    <td><%= fluxomatricula.aluno_id %></td>
+    <td><%= fluxomatricula.periodo_id %></td>
+    <td><%= fluxomatricula.disciplina_id %></td>
+    <td><%= fluxomatricula.data %></td>
+    <td><%= link_to 'Show', fluxomatricula %></td>
+    <td><%= link_to 'Edit', edit_fluxomatricula_path(fluxomatricula) %></td>
+    <td><%= link_to 'Destroy', fluxomatricula, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Fluxomatricula', new_fluxomatricula_path %>

@@ -1,0 +1,6 @@
+<p><%= @remetente.nome %> (<%= @remetente.email %>) solicitou em nosso sistema
+o envio do relatório de matrículas da disciplina <%= @disciplina.nome %> do <%=@periodo.quadrimestre.to_s %>
+de <%= @periodo.ano.to_s %> para esse email.</p>
+
+<p>O relatório pode ser acessado através <%= link_to "deste link", @link %></p>
+<p>Essa mensagem foi gerada automaticamente, favor não responder. Em caso de dúvida, contate a secretaria acadêmica</p>

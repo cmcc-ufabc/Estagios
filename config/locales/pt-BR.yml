@@ -1,0 +1,322 @@
+pt-BR:
+    
+  pedido_encaminhado: Seu pedido foi encaminhado com sucesso! Aguarde um e-mail confirmando a aprovação.
+  pedido_sendo_processado: Seu pedido ainda está em processo.
+  analise_realizada: Análise realizada com sucesso! 
+  erro_analise: Houve um erro no envio da análise! Por favor, cheque os campos e tente novamente.
+  avaliacao_sucesso: Avaliação realizada com sucesso!
+  arquivo_vazio: O relatório não foi anexado.
+  erro_atualizar_projeto: Não foi possível atualizar o projeto. 
+  arquivo_vazio: Essa ação não pôde ser executada. Por favor anexe o relatório em formato .pdf e tente novamente.
+  analise_pelo_orientador: Seu projeto foi encaminhado ao orientador para análise.
+  erro_recusa_banca: Houve um erro na sua solicitação.
+  avaliacao_salva: Avaliação salva com sucesso.
+  erro_avaliacao: Houve um erro no envio da avaliação!
+  banca_insuficiente: "Sua solicitação não pôde ser processada. Deve ser informado 5 avaliadores: 1 presidente, 2 titulares e 2 suplentes. Tente novamente."
+  erro_board_document: Não foi possível atualizar o documento. Por favor, cheque se os campos foram preenchidos corretamente e tente novamente. Caso o erro persista, contate o administrador do sistema.
+  projeto_concluido: Parabéns! Seu projeto foi concluído com sucesso!
+  erro_ao_conclui_o_projeto: Não foi possível realizar a atualização! Caso o erro persista, contate o administrador do sistema.
+  coordenador_não_enviou_ata: Envie a Ata em formato .pdf e tente novamente.
+  erro_na_atualização_do_board_document: Houve algum erro na sua solicitação. Por favor, tente novamente. Caso o erro persista, contate o administrador do sistema!
+  banca_definida: Banca definida com sucesso! A opção "gerar modelo de Ata" ja está disponível no menu esquerdo.
+  solicitacao_incorreta: Essa ação não pôde ser processada! Caso o erro persista, contate o administrador do sistema!
+  status_0: Aguardando análise da DA
+  status_13: Aguardando analise do coordenador
+  status_2: Aluno procurando orientador
+  projeto_nao_encontrado: Não foi encontrado nenhum projeto com as informações fornecidas
+  pedido_enviado_ao_orientador: Seu pedido foi encaminhado ao orientador. Aguarde um Email com a resposta.
+  erro_analise_matricula: Não foi possível enviar sua análise ao sistema. A justificativa deve ser informada caso o pedido seja indeferido.
+  envio_ata: Envio da Ata digitalizada
+  confirma?: Você tem certeza?
+  validacao_duedates: não pode ser menor que a data do fim da matrícula
+  usuario_bloqueado: O usuário bloqueado com sucesso.
+  usuario_desbloqueado: O usuário desbloqueado com sucesso.
+  editado_com_sucesso: O usuário foi editado com sucesso!
+  erro_ao_editar: Houve um erro ao editar o usuário.
+  alterna_tipo_de_usuario: Tipo de usuário trocado com sucesso!
+  bloquear: Você tem certeza de que deseja bloquear este usuário?
+  desbloquear: Você tem certeza de que deseja desbloquear esse usuário?
+  acesso_negado: Consta em nosso sistema que o usuário foi bloqueado. Contate a secretaria acadêmica para mais detalhes ou para solicitar o desbloqueio.
+  formulario_enviado: O formulário de avaliação foi enviado com sucesso
+  formulario_erro: Houve um erro ao enviar o formulário. Certifique-se que ele está no formato .pdf e tente novamente. Caso o erro persista, contate o administrador do sistema
+  confirma_banca: Todos os campos foram preenchidos com informações corretas? Em caso afirmativo, confirme a solicitação.
+  membros_de_banca_enviados_com_sucesso: Membros da banca enviados com sucesso.
+  periodo_criado: Período criado com sucesso!
+  periodo_atualizado: Período atualizado com sucesso!
+  obrigatoria_bct: Obrigatória para o BC&T
+  obrigatoria_bcc_limitada_bct: Obrigatória para o BCC (opção limitada para BCT)
+  obrigatoria_bcc_livre_bct: Obrigatória para o BCC (livre para o BCC) 
+  arquivo_csv: O arquivo deve estar no formato.csv
+  nao_disponivel: Não disponível
+  não_atribuida: Não atribuída
+  emailenviado: Email enviado com sucesso!
+  semperiodo: Disciplinas cadastradas
+  lic_ciencia_bio: Licenciatura em ciências biológicas
+  lic_filosofia: Licenciatura em filosofia
+  lic_fisica: Licenciatura em física
+  lic_matematica: Licenciatura em matemática
+  lic_quimica: Licenciatura em química
+  erro_matricula: Uma ou mais disciplinas não puderam ser salvas devido à conflito de horários. Cheque suas escolhas e tente novamente
+  anexo_enviado: mensagem e/ou anexo enviados com sucesso!
+  anexo_erro: Houve um erro em sua solicitação. Certifique-se que o arquivo está em formato .PDF e tente novamente. Caso o erro persista, contate o administrador do sistema.
+  conceito_enviado: Conceito enviado com sucesso!
+  erro_conceito: Houve um erro em sua solicitação. Por favor, tente novamente. Caso o erro persista, contate o administrador do sistema
+  lancamento_conceito: Lançamento de conceitos
+  erro_curso: Por favor, informe ao menos um dos cursos apresentados.
+  q1: 1º quadrimestre
+  q2: 2º quadrimestre
+  q3: 3º quadrimestre
+  codigo: Código
+  disciplina_editada: Disciplina editada
+  entrada_incorreta: Sua solicitação não pôde ser processada. por favor tente novamente mais tarde. Caso o erro persista, por favor, contate o administrador do sistema.
+  sem_periodo: Não existem períodos cadastrados para esse aviso.
+  erro_formulario_solicitacao: Um ou mais respostas não foram preenchidas.
+  nao: Não
+  curso_nao_informado: Uma ou mais disciplinas não correspondem aos cursos informados.
+      
+  date:
+    abbr_day_names:
+    - Dom
+    - Seg
+    - Ter
+    - Qua
+    - Qui
+    - Sex
+    - Sáb
+    abbr_month_names:
+    - 
+    - Jan
+    - Fev
+    - Mar
+    - Abr
+    - Mai
+    - Jun
+    - Jul
+    - Ago
+    - Set
+    - Out
+    - Nov
+    - Dez
+    day_names:
+    - Domingo
+    - Segunda
+    - Terça
+    - Quarta
+    - Quinta
+    - Sexta
+    - Sábado
+    formats:
+      default: ! '%d/%m/%Y'
+      long: ! '%d de %B de %Y'
+      short: ! '%d de %B'
+    month_names:
+    - 
+    - Janeiro
+    - Fevereiro
+    - Março
+    - Abril
+    - Maio
+    - Junho
+    - Julho
+    - Agosto
+    - Setembro
+    - Outubro
+    - Novembro
+    - Dezembro
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadamente 1 hora
+        other: aproximadamente %{count} horas
+      about_x_months:
+        one: aproximadamente 1 mês
+        other: aproximadamente %{count} meses
+      about_x_years:
+        one: aproximadamente 1 ano
+        other: aproximadamente %{count} anos
+      almost_x_years:
+        one: quase 1 ano
+        other: quase %{count} anos
+      half_a_minute: meio minuto
+      less_than_x_minutes:
+        one: menos de um minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: mais de 1 ano
+        other: mais de %{count} anos
+      x_days:
+        one: 1 dia
+        other: ! '%{count} dias'
+      x_minutes:
+        one: 1 minuto
+        other: ! '%{count} minutos'
+      x_months:
+        one: 1 mês
+        other: ! '%{count} meses'
+      x_seconds:
+        one: 1 segundo
+        other: ! '%{count} segundos'
+    prompts:
+      day: Dia
+      hour: Hora
+      minute: Minuto
+      month: Mês
+      second: Segundo
+      year: Ano
+  errors: &errors
+    format: O campo "%{attribute}" %{message}
+    messages:
+      accepted: deve ser aceito
+      blank: não pode ficar em branco
+      confirmation: não está de acordo com a confirmação
+      empty: não pode ficar vazio
+      equal_to: deve ser igual a %{count}
+      even: deve ser par
+      exclusion: não está disponível
+      greater_than: deve ser maior que %{count}
+      greater_than_or_equal_to: deve ser maior ou igual a %{count}
+      inclusion: não está incluído na lista
+      invalid: não é válido
+      less_than: deve ser menor que %{count}
+      less_than_or_equal_to: deve ser menor ou igual a %{count}
+      not_a_number: não é um número
+      not_an_integer: não é um número inteiro
+      odd: deve ser ímpar
+      record_invalid: ! 'A validação falhou: %{errors}'
+      taken: já está em uso
+      too_long: ! 'é muito longo (máximo: %{count} caracteres)'
+      too_short: ! 'é muito curto (mínimo: %{count} caracteres)'
+      wrong_length: deve conter %{count} caracteres
+      #wrong_length: não possui o tamanho esperado (%{count} caracteres)
+    template:
+      body: ! 'Por favor, verifique o(s) seguinte(s) campo(s):'
+      header:
+        one: ! 'Não foi possível gravar %{model}: 1 erro'
+        other: ! 'Não foi possível gravar %{model}: %{count} erros.'
+  helpers:
+    select:
+      prompt: Por favor selecione
+    submit:
+      create: Criar %{model}
+      submit: Salvar %{model}
+      update: Atualizar %{model}
+  number:
+    currency:
+      format:
+        delimiter: .
+        format: ! '%u %n'
+        precision: 2
+        separator: ! ','
+        significant: false
+        strip_insignificant_zeros: false
+        unit: R$
+    format:
+      delimiter: .
+      precision: 3
+      separator: ! ','
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion:
+            one: bilhão
+            other: bilhões
+          million:
+            one: milhão
+            other: milhões
+          quadrillion:
+            one: quatrilhão
+            other: quatrilhões
+          thousand: mil
+          trillion:
+            one: trilhão
+            other: trilhões
+          unit: ''
+      format:
+        delimiter: .
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: .
+    precision:
+      format:
+        delimiter: .
+  support:
+    array:
+      last_word_connector: ! ' e '
+      two_words_connector: ! ' e '
+      words_connector: ! ', '
+  time:
+    am: ''
+    formats:        
+      default: ! '%A, %d de %B de %Y, %H:%M h'
+      long: ! '%A, %d de %B de %Y, %H:%M h'
+      short: ! '%d/%m, %H:%M h'
+      hora: ! '%Hh:%M'
+    pm: ''
+  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    models:
+        user: usuário        
+    attributes:
+        disciplina:
+            horario_inicio: horário de início
+            horario_fim: horário de fim
+        periodo:
+            matricula_inicio: início do período de matrícula
+            reajuste_inicio: início do período de reajuste
+            cadastro_inicio: início do período de edição de disciplinas           
+            
+            
+    errors:
+      models:          
+          periodo:
+            attributes:
+                matricula_inicio:
+                    periodo_matricula_invalido: não pode ser maior que o campo "fim do período de matrícula".
+                    cadastro_matricula: não pode ser maior que o campo "fim do período de edição de disciplinas".
+                reajuste_inicio:
+                    periodo_reajuste_invalido: não pode ser maior que o campo "fim do período de reajuste".
+                    matricula_reajuste: não pode ser menor que o campo "fim do período de matrícula".
+                cadastro_inicio:
+                    periodo_cadastro_invalido: não pode ser maior que o campo "fim do período de edição de disciplinas".
+          mudanca:
+              attributes:
+                  codigo_covalidacao:
+                      disciplinas_iguais: é inválido! Já consta no banco de dados o par de disciplinas.
+          disciplina:
+              attributes:
+                  horario_inicio:
+                      conflito_de_horarios_no_modelo: não pode ser maior que o campo "horário de fim".
+                  codigo:
+                      disciplinas_iguais: é inválido! Já consta no banco de dados esse código cadastrado com essa matriz.
+
+      template:
+        header:
+          one: "1 erro impediu que esse(a) {{model}} fosse salvo(a)"
+          other: "{{count}} impediram que esse(a){{model}} fosse salvo(a)"
+        body: "Existem erros com os seguintes campos:"

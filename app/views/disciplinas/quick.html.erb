@@ -1,0 +1,14 @@
+<p class="flash-notice"><font color = "red"><%= flash[:notice] %></font></p>
+
+<h1>Contagem de créditos</h1>
+<p>Envie para o sistema o arquivo em formato .CSV</p>
+
+<%= form_for(:arquivo, :url => {:controller => 'disciplinas', :action => 'quick2'}) do |p| %>
+
+<%= p.file_field :file %>
+<%=p.hidden_field :file_cache %><br><br>
+
+
+<%= p.submit "enviar"%>
+<% end %>
+

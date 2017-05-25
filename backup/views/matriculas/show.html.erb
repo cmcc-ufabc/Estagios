@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Aluno:</b>
+  <%= @matricula.aluno_id %>
+</p>
+
+<p>
+  <b>RA:</b>
+  <%= retorna_ra(@matricula.aluno_id) %>
+</p>
+
+<p>
+  <b>Email:</b>
+<%= retorna_email(@matricula.aluno_id) %>
+</p>
+
+<p>
+  <b>Disciplina:</b>
+  <%= retorna_nome_disciplina(@matricula.disciplina_id) %>
+</p>
+
+<p>
+  <b>Período:</b>
+  <%= retorna_periodo_letivo(@matricula.disciplina_id) %>
+</p>
+
+<br><br>
+
+<p>
+  <b>Arquivo anexo:</b>
+  <% if arquivo_anexo(@matricula.id) %>
+            <%= link_to "Baixar arquivo anexo", :controller => 'matriculas', :action => 'download', :id => @matricula.id%>
+      <% else %>
+            nenhum anexo disponível 
+      <% end %>
+</p>
+
+<p>
+  <b>Mensagem:</b><br>
+    <%= @matricula.mensagem %>
+</p>
+

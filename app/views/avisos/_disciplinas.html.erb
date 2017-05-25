@@ -1,0 +1,36 @@
+<table>
+  <tr>
+    <th>Código</th>
+    <th>Disciplina</th>
+    <th>Turno</th>
+    <th>Dia</th>
+    <th>Horário</th>
+    <th>Anexo</th>
+    <th>Mensagem</th>
+    <th></th>
+  </tr>
+
+<% @matriculas.each do |matricula| %>
+  <%= form_for(:informacoes, :url => {:controller => 'matriculas', :action =>'anexo', :id => matricula.id}) do |f| %>
+  <tr>
+    <td><%= retorna_codigo(matricula.disciplina_id)%></td>
+    <td><%= retorna_nome_disciplina(matricula.disciplina_id) %></td>
+    <td><%= retorna_turno(matricula.disciplina_id) %></td>
+    <td><%= retorna_dia(matricula.disciplina_id) %></td>
+    <td>das <%= I18n.l retorna_horario_inicio(matricula.disciplina_id), :format => :hora%> às <%= I18n.l retorna_horario_fim(matricula.disciplina_id), :format => :hora%></td>
+    <% if matricula.status == 0 %>
+        <td><%= f.file_field :arquivo %></td>
+        <%= f.hidden_field :arquivo_cache %>
+        <td><%= f.text_field :mensagem, :value => matricula.mensagem %></td>
+        <td><%= f.submit "enviar" %></td>
+    <% end %>
+  </tr>
+  
+
+<% end %>  
+  
+
+<% end %>
+</table>
+
+<br />

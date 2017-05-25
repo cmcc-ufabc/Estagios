@@ -1,0 +1,25 @@
+<% if @matriculas.blank? %>
+    <p>Nenhum aluno realizou matrícula nessa disciplina.</p>
+    
+<% else %>
+    <p><b>Os seguintes alunos estão matriculados nessa disciplina</b></p>
+    <table>
+  <tr>
+    <th>Aluno</th>
+    <th>Email</th>
+    <th>Telefone</th>
+    <th></th>
+  </tr>
+
+<% @matriculas.each do |matricula| %>
+
+  <tr>
+    <td><%= retorna_nome_aluno(matricula.aluno_id)%></td>
+    <td><%= retorna_email_aluno(matricula.aluno_id)%></td>
+    <td><%= retorna_telefone_aluno(matricula.aluno_id)%></td>
+  </tr>
+
+<%end%>  
+</table>
+    
+<% end %>

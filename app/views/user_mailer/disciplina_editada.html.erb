@@ -1,0 +1,12 @@
+<p>Prezado(a) <%= @aluno.nome %></p>
+
+<p>Houveram alterações na disciplina <%= @disciplina.nome %></p>
+<p>Os novos horários são:</p>
+<p><b>Turno:</b> <%= @disciplina.turno %></p>
+<p><b>Dia:</b> <%= @disciplina.dia %></p>
+<p><b>Horário:</b> das <%= I18n.l @disciplina.horario_inicio, :format => :hora %> até <%= I18n.l @disciplina.horario_fim, :format => :hora %></p>
+
+
+
+
+<p>Essa mensagem foi gerada automaticamente, favor não responder. Em caso de dúvida, contate a secretaria acadêmica do centro.</p>

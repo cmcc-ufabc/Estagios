@@ -1,0 +1,38 @@
+<h1>Períodos cadastrados</h1>
+
+<% if current_usuario.tipo == "Administrador" %>
+    <%= link_to 'Novo Período', new_periodo_path %>
+
+<% end %>
+<table>
+  <tr>
+    <th>Quadrimestre</th>
+    <th>Ano</th>
+    <th>Período de Matrícula</th>
+    <th>Período de Ajuste</th>
+    <th>Período de Vagas Remanescentes</th>
+    <th></th>
+  </tr>
+
+<% @periodos.each do |periodo| %>
+  <tr>
+    <td><%= periodo.quadrimestre %></td>
+    <td><%= periodo.ano %></td>
+    <td><%= retorna_periodo_matricula(periodo)%></td>
+    <td><%= retorna_periodo_reajuste(periodo)%></td>
+   <%  if periodo.id == 1 or periodo.id == 2 or periodo.id == 3 or periodo.id == 4 or periodo.id == 5 or periodo.id == 6 %>
+    <td><%= '-' %></td>
+        <%else%>
+    <td><%= retorna_periodo_vagas(periodo)%></td>
+    <%end%>
+    <% if current_usuario.tipo == "Administrador" %>
+    <td><%= link_to 'Editar', edit_periodo_path(periodo) %></td> 
+    <td><%= link_to 'Deletar', :controller => 'periodos', :action => 'delete',:id => periodo.id, :confirm => 'Você tem certeza?' %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+<%= '* O período de'%> <b><%='vagas remanescente'%></b> <%='foi inserido a partir do 3º Quadrimestre de 2016' %>
+<br />
+
+

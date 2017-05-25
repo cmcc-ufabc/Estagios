@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  matricula_inicio: 2014-07-11
+  matricula_fim: 2014-07-11
+  reajuste_inicio: 2014-07-11
+  reajuste: 
+
+two:
+  matricula_inicio: 2014-07-11
+  matricula_fim: 2014-07-11
+  reajuste_inicio: 2014-07-11
+  reajuste: 

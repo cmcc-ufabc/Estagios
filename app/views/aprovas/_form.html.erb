@@ -1,0 +1,27 @@
+<%= form_for(@aprova) do |f| %>
+  <% if @aprova.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@aprova.errors.count, "error") %> prohibited this aprova from being saved:</h2>
+
+      <ul>
+      <% @aprova.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tipo %><br />
+  <div><%= f.radio_button :tipo, "Sim" %> Sim </div>
+  <div><%= f.radio_button :tipo, "Não" %> Não</div>  
+  </div>
+
+ <div class="field">
+    <%= f.hidden_field :aluno_id, :value => params[:id] %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Avaliar' %>
+  </div>
+<% end %>

@@ -1,0 +1,50 @@
+<h1>Editar usuário</h1>
+<%= form_for(:usuario,:url => {:controller => 'users',:action =>'update', :id => params[:id]}) do |f| %>
+
+
+  <% if @usuario.errors.any? %>
+    <div id="error_explanation">
+      <h2>Por favor, corrija os erros abaixo antes de continuar</h2>
+      <ul>
+      <% @usuario.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </div>
+
+  <% if current_usuario.tipo == "Administrador" %>
+  <div class="field">
+    <%= f.label :tipo_de_usuario %><br />
+    <%= f.select :tipo, [["Aluno"],["Secretaria"],["Administrador"]] %>
+  </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :ra_ou_siape %><br />
+    <%= f.number_field :ra %>
+  </div>
+  <% if current_usuario.tipo == "Administrador" %>
+  <div class="field">
+    <%= f.label :centro %><br />
+    <%= f.select :centro, [["CMCC"],["CCNH"],[""]] %>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :telefone %><br />
+    <%= f.text_field :telefone, :size => 12 %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Atualizar" %>
+  </div>
+<% end %>
+<p><font color="red">Atenção: O e-mail utilizado deve ser @ufabc.edu.br ou @aluno.ufabc.edu.br</font></p>

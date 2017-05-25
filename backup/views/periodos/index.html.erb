@@ -1,0 +1,32 @@
+<h1>Períodos cadastrados</h1>
+
+<% if current_usuario.tipo == "Administrador" %>
+    <%= link_to 'Novo Período', new_periodo_path %>
+
+<% end %>
+<table>
+  <tr>
+    <th>Quadrimestre</th>
+    <th>Ano</th>
+    <th>Período de matrícula</th>
+    <th>Período de reajuste</th>
+    <th></th>
+  </tr>
+
+<% @periodos.each do |periodo| %>
+  <tr>
+    <td><%= periodo.quadrimestre %></td>
+    <td><%= periodo.ano %></td>
+    <td><%= retorna_periodo_matricula(periodo)%></td>
+    <td><%= retorna_periodo_reajuste(periodo)%></td>
+    <% if current_usuario.tipo == "Administrador" %>
+    <td><%= link_to 'Editar', edit_periodo_path(periodo) %></td> 
+    <td><%= link_to 'Deletar', :controller => 'periodos', :action => 'delete',:id => periodo.id, :confirm => 'Você tem certeza?' %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+

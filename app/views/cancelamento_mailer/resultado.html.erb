@@ -1,0 +1,13 @@
+<p>Prezado(a): <%=@usuario.nome%></p>
+<p>Sua solicitação de Cancelamento para a disciplina <u><i><%= @cancelamento.nomedis %></i></u> foi: </p>
+<p><b><font color=green> <%=@parecer.parecer%> </font></b></p>
+
+<% if @parecer.parecer == 'Indeferido' %>
+<p> O Motivo do Indeferimento foi: </p>
+<p><i><%= @cancelamento.mensagem  %></i></p>
+    <%end%>
+
+
+<p>Essa mensagem foi gerada automaticamente, favor não responder. <b>Em caso de dúvida, contate a Divisão Acadêmica <%=@email%>.</b></p>
+
+<p><i> Mensagem enviada em, <%=@hoje%></i></p>

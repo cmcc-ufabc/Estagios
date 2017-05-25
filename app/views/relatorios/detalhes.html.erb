@@ -1,0 +1,37 @@
+<h3><b>Informações do aluno:</b></h3>
+<p><b>Nome do aluno:</b> <%= @aluno.nome%>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>RA:</b> <%= @aluno.ra %></p>
+<p><b>Email:</b> <%= @aluno.email%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Telefone para contato:</b> <%= @aluno.telefone %></p><br>
+<p><b>Curso(s):</b></p>
+<% @cursos.each do |curso| %>
+    <p><%=curso.nome_do_curso %></p>
+<% end %>
+    <br> 
+
+<h3><b>O aluno solicitou Matrícula nas seguintes disciplinas do centro:</b></h3>    
+<% @matriculas.each do |matricula| %>
+  <% if filtro_centro(matricula.disciplina_id) %>
+      <% disciplina = Disciplina.find(matricula.disciplina_id) %>  
+      <p><b><%= disciplina.codigo %>: <%=disciplina.nome%></b></p>
+      <p><b><%= "Turno" %>: <%=disciplina.turno%></b></p>
+  <% end %>
+
+<% end %>    
+    
+<br><h3><b>Análise das matrículas</b></h3>
+  
+<p><b>Verificação dos critérios pela Divisão Acadêmica do centro:</b></p>
+<p>1. Já teve solicitação de estágio <b>DEFERIDA</b> anteriormente? <b><%= @formulario.resposta_2 %></b></p>
+<p>2. Completou, mínimo, a metade dos quadrimestre previstos para o curso (6 quadrimestres)? <b><%= @formulario.resposta_3 %></b></p>
+<p>3. Cursou ou está matriculado em uma ou mais disciplinas de Práticas de Ensino? <b><%= @formulario.resposta_4 %></b></p>
+<p>4. Integrou, com aprovação, metade dos créditos de disciplinas obrigatórias do curso? <b><%= @formulario.resposta_5 %></b></p><br>
+
+<p>Mensagem da secretaria:</p>
+<p><%= @formulario.mensagem %></p><br>
+<p>Parecer: <b>
+
+<% if @formulario.resposta_3 == "Sim" and @formulario.resposta_4 == "Sim" and @formulario.resposta_5 == "Sim" and @formulario.resposta_6 == t(:nao)%>
+    Aprovado
+<% else %>
+    Reprovado    
+<% end %>    
+  </b></p>

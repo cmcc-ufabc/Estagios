@@ -1,0 +1,114 @@
+<% if current_usuario.tipo == 'Aluno' %>
+<h1>Meus cancelamentos</h1>
+
+<p><h10> Para solicitar um cancelamento de matéria, clique no  botão "Nova Solicitação" e <b>digite o nome da disciplina de acordo com sua matricula</b>, <td><%= link_to 'Clique aqui', avisos_path %>, para obter esta informação</td> : </h10></p>
+<p> </p>
+<table>
+  <tr>
+    <th>Aluno</th>
+    <th>Nome Disciplina</th>
+    <th>Justificativa</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+
+<% @cancelamentos.each do |cancelamento| %>
+  <tr>
+      <%  if current_usuario.id == cancelamento.aluno_id%>
+    <td><%= retorna_nome_aluno(cancelamento.aluno_id) %></td>
+    <td><%= (cancelamento.nomedis) %></td>
+    <td><%= (cancelamento.justificativa) %></td>
+    <td><%= link_to 'Resumo', cancelamento %></td>
+    <td><%= link_to 'Editar', edit_cancelamento_path(cancelamento) %></td>
+  </tr> 
+  <%end%>
+<% end %>
+
+</table>
+
+<br />
+<%= link_to "Nova Solicitação", :controller=> 'cancelamentos', :action=>'new' %>
+
+
+ <%else%>
+<%  if current_usuario.centro=="CMCC"%>
+
+<h1>Solicitações de cancelamentos</h1>
+
+<table>
+  <tr>
+    <th>Aluno</th>
+    <th>Nome Disciplina</th>
+    <th>Mensagem (Secretaria)</th>
+    <th>Justificativa (Aluno)</th>
+    <th>Parecer</th>
+    <th></th>
+  </tr>
+
+<%  @cancelar= Cancelamento.find(:all,:conditions=>{:periodo_id=>params[:id],:centro=>'CMCC'})%>
+<% @cancelar.each do |cancelar| %>
+ 
+  <%@turno=Disciplina.find(:first,:conditions=>{:id=>cancelar.disciplina_id})%>
+   <%@data=Periodo.find(params[:id])%>
+  
+  <tr>
+    <td><%= link_to retorna_nome_aluno(cancelar.aluno_id), cancelar  %></td> 
+    <td><%= retorna_nome_disciplina (cancelar.disciplina_id) %></td>
+    <td><%= cancelar.mensagem %></td>
+    <td><%= cancelar.justificativa %></td>
+    <td><%= cancelar.parecer %></td>
+    <%if cancelar.parecer == nil%>
+    <td><%= link_to 'Avaliar', "/estagios/cancelamentos/testo/"+cancelar.id.to_s%></td>
+    <% else %>
+    <td><%= "Avaliação já realizada"  %></td>
+    <%end%>
+  </tr>
+
+<% end %>
+
+</table>
+
+<br />
+
+
+<%else%>
+<h1>Solicitações de cancelamentos</h1>
+
+<table>
+  <tr>
+    <th>Aluno</th>
+    <th>Nome Disciplina</th>
+    <th>Mensagem (Secretaria)</th>
+    <th>Justificativa (Aluno)</th>
+    <th>Parecer</th>
+    <th></th>
+  </tr>
+
+<%  @cancelar= Cancelamento.find(:all,:conditions=>{:periodo_id=>params[:id],:centro=>'CCNH'})%>
+<% @cancelar.each do |cancelar| %>
+ 
+  <%@turno=Disciplina.find(:first,:conditions=>{:id=>cancelar.disciplina_id})%>
+   <%@data=Periodo.find(params[:id])%>
+  
+  <tr>
+    <td><%= link_to retorna_nome_aluno(cancelar.aluno_id), cancelar  %></td> 
+    <td><%= retorna_nome_disciplina (cancelar.disciplina_id) %></td>
+    <td><%= cancelar.mensagem %></td>
+    <td><%= cancelar.justificativa %></td>
+    <td><%= cancelar.parecer %></td>
+    <%if cancelar.parecer == nil%>
+    <td><%= link_to 'Avaliar', edit_cancelamento_path(cancelar) %></td>
+    <% else %>
+    <td><%= "Avaliação já realizada"  %></td>
+    <%end%>
+  </tr>
+
+<% end %>
+
+</table>
+
+<br />
+
+<%end%>
+<%end%>

@@ -1,0 +1,27 @@
+<h1>Análise de Novos Cadastrados</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>E-mail</th>
+    <th>Data da Solicitação</th>
+    <th></th>
+  </tr>
+
+<% @aprovacao = Usuario.find(:all,:conditions=>{:tipo=>'Servidor (CMCC)'}) %>
+<% @aprova = Aprova.find(:all) %> 
+<% @aprovacao.each do |aprova| %>
+  <tr>
+    <td><%= aprova.nome %></td>
+    <td><%= aprova.email %></td>
+    <td><%= aprova.created_at %></td>
+
+    <td><%= link_to 'Avaliar', :controller=> 'aprovas', :action=> 'new',:id => aprova.id %></td>
+ 
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+

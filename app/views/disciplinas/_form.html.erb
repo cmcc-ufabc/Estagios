@@ -1,0 +1,49 @@
+<%= form_for(@disciplina) do |f| %>
+  <% if @disciplina.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@disciplina.errors.count, "erro")%> detectado(s) nesse modelo:</h2>
+
+      <ul>
+      <% @disciplina.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :curso %><br />
+    <%= f.select :curso, $cursos %>
+  </div>
+  <div class="field">
+    <%= f.label :codigo %><br />
+    <%= f.text_field :codigo, :size => 8 %>
+  </div>
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :turno %><br />
+    <%= f.select :turno,[["Diurno"],["Noturno"]] %>
+  </div>
+  <div class="field">
+    <%= f.label :dia %><br />
+    <%= f.select :dia,[["2ª feira"],["3ª feira"],["4ª feira"],["5ª feira"],["6ª feira"],["sábado"]] %>
+  </div>
+  <div class="field">
+    <%= f.label :horario_inicio %><br />
+    <%= f.time_select :horario_inicio %>
+  </div>
+  <div class="field">
+    <%= f.label :horario_fim %><br />
+    <%= f.time_select :horario_fim %>
+  </div>
+<div class="field">
+    <%= f.label :docente %><br />
+    <%= f.select :docente, $docente_aux.collect{|m| [m.docente]}%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

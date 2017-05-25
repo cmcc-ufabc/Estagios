@@ -1,0 +1,43 @@
+<% if flash[:notice]%>
+<p class="flash-notice"><font color = "green" size="5"><%= flash[:notice] %></font></p>
+<br>
+  <% end %>
+
+<% if flash[:erro]%>
+<p class="flash-notice"><font color = "red" size="5"><%= flash[:erro] %></font></p>
+<br>
+  <% end %>
+
+<h1>Alunos cadastrados no Sistema</h1>
+
+<p>A tabela abaixo contém os alunos que estão matriculados no Sistema do <%= current_usuario.centro%>.</p>
+
+<table>
+  <tr>
+    <th>Aluno</th>
+    <th>RA</th>
+ <!--   <th>Código da disciplina</th> -->
+  <!--  <th>Nome da disciplina</th> -->
+
+    <th></th>
+    <th></th>
+  </tr>
+
+
+
+<% @novamatriz.each do |users| %>
+
+  
+     
+      <tr>
+        <td><%= retorna_nome_aluno(users)%></td>
+        <td><%= retorna_ra(users)%></td>
+        <td><%= link_to "avançar", :controller => 'matriculas', :action => 'relindiv', :id => users%></td>
+      </tr>
+    <%end%>
+ 
+
+ 
+</table>
+
+<br />

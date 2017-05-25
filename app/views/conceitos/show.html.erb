@@ -1,0 +1,53 @@
+<% if flash[:notice]%>
+<p class="flash-notice"><font color = "green" size="5"><%= flash[:notice] %></font></p>
+<br>
+  <% end %>
+
+<% if flash[:erro]%>
+<p class="flash-notice"><font color = "green" size="5"><%= flash[:notice] %></font></p>
+<br>
+  <% end %>
+
+<h3><%=@titulo%></h3>
+
+<p>A tabela abaixo apresenta as solicitações de matrículas com parecer definido como "aprovado" e que ainda nao foi entregue o parecer</p>
+    <table>
+  <tr>
+    <th>Nome</th>
+    <th>RA</th>
+    <th>Disciplina</th>
+    <th>Código da disciplina</th>
+    <th>Parecer do estágio</th>
+    <th></th>
+  </tr>
+  
+  
+  <%@aluno = Usuario.find(:all, :conditions => {:tipo => 'Aluno'},:order => 'nome')%>
+      <% @aluno.each do |nome| %>
+          <%@matriculas = Matricula.find(:all, :conditions => {:aluno_id=> nome.id,:periodo_id => params[:id], :status => 1})%>
+     
+              <% @matriculas.each do |matricula| %>
+  
+  <%= form_for(:conceito, :url => {:controller => 'conceitos', :action => 'envio', :id => matricula.id}) do |f| %>
+  <% if filtro_centro(matricula.disciplina_id) %>
+    <tr>
+        <td><%= link_to retorna_nome_aluno(matricula.aluno_id),:order=> "aluno_id", :controller => 'users',:order=> "nome", :action => 'show', :id => matricula.aluno_id %></td>
+        <td><%= retorna_ra(matricula.aluno_id) %></td>
+        <td><%= link_to retorna_nome_disciplina(matricula.disciplina_id), :controller => 'disciplinas', :action => 'show', :id => matricula.disciplina_id %></td>
+        <td><%= retorna_codigo(matricula.disciplina_id) %></td>
+
+         <td><%= f.select :conceito, [["Aprovado"],["Reprovado"],["Desistiu"]]%></td>
+        <%= f.hidden_field :status, :value => 2 %>
+        <td><%= f.submit "Avançar"%></td>
+
+    
+    </tr>
+
+  <% end %>  
+  <% end %>
+  <% end %>  
+  <%end%>
+</table>
+
+<!--<%= render 'pendentes' %>-->
+

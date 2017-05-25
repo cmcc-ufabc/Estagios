@@ -1,0 +1,44 @@
+<%= form_for(@periodo) do |f| %>
+  <% if @periodo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@periodo.errors.count, "erro") %> detectados(s) nesse modelo:</h2>
+
+      <ul>
+      <% @periodo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :período %><br />
+    <%= f.select :quadrimestre, [["1º quadrimestre"],["2º quadrimestre"],["3º quadrimestre"]] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ano %><br />
+    <%= f.text_field :ano, :size => 8%>
+  </div>
+
+  <div class="field">
+    <%= f.label :inicio_do_período_de_matricula %><br />
+    <%= f.date_select :matricula_inicio %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fim_do_período_de_matricula %><br />
+    <%= f.date_select :matricula_fim %>
+  </div>
+  <div class="field">
+    <%= f.label :inicio_do_periodo_de_reajuste %><br />
+    <%= f.date_select :reajuste_inicio %>
+  </div>
+  <div class="field">
+    <%= f.label :fim_do_periodo_de_reajuste%><br />
+    <%= f.date_select :reajuste_fim %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

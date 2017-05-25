@@ -1,0 +1,28 @@
+<p>Prezado(a) <%=@usuario.nome%>.</p>
+<p>Você solicitou matrícula nas seguintes disciplinas</p>
+
+<table border="2">
+  <tr>
+    <th>Código</th>
+    <th>Disciplina</th>
+    <th>Turno</th>
+    <th>Dia</th>
+    <th>Horário</th>
+  </tr>
+
+<% @disciplinas.each do |disciplina| %>
+  <% unless disciplina[0] == "Codigo"%>
+  <tr>
+    <td><%= disciplina[0][0] %></td>
+    <td><%= disciplina[1][0] %></td>
+    <td><%= disciplina[2][0] %></td>
+    <td><%= disciplina[3][0] %></td>
+    <td><%= disciplina[4][0] %></td>
+  </tr>
+  <%end%>
+<% end %>
+</table>
+
+<br />
+<p><%= @hoje %></p>
+<p>Essa mensagem foi gerada automaticamente, favor não responder. Em caso de dúvida, contate a secretaria acadêmica do centro.</p>

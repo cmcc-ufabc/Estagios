@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  curso: MyString
+  codigo: MyString
+  nome: MyString
+  turno: MyString
+  dia: MyString
+  horario_inicio: 2014-07-10 18:37:36
+  horario_fim: 2014-07-10 18:37:36
+
+two:
+  curso: MyString
+  codigo: MyString
+  nome: MyString
+  turno: MyString
+  dia: MyString
+  horario_inicio: 2014-07-10 18:37:36
+  horario_fim: 2014-07-10 18:37:36
